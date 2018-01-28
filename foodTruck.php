@@ -59,8 +59,9 @@ echo ($var11 * 1) . ' ' . $drinks[0]->Name . ' at ' . $drinks[0]->Price . '. Ite
 echo ($var12 * 1) . ' ' . $drinks[1]->Name . ' at ' . $drinks[1]->Price . '. Item total: $' . ($var12 * $drinks[1]->Price) . '<br>';  
 echo ($var13 * 1) . ' ' . $drinks[2]->Name . ' at ' . $drinks[2]->Price . '. Item total: $' . ($var13 * $drinks[2]->Price) . '<br>'; 
      
-     
-echo "<h2>Grand Total: $" . (($var1 * $meats[0]->Price) + ($var2 * $meats[1]->Price) + ($var3 * $meats[2]->Price) + ($var4 * $meats[3]->Price) + ($var5 * $toppings[0]->Price) + ($var6 * $toppings[1]->Price) + ($var7 * $toppings[2]->Price) + ($var8 * $sides[0]->Price) + ($var9 * $sides[1]->Price) + ($var10 * $sides[2]->Price) + ($var11 * $drinks[0]->Price) + ($var12 * $drinks[1]->Price) + ($var13 * $drinks[2]->Price)) . "</h2><br><hr>";
+$total = (($var1 * $meats[0]->Price) + ($var2 * $meats[1]->Price) + ($var3 * $meats[2]->Price) + ($var4 * $meats[3]->Price) + ($var5 * $toppings[0]->Price) + ($var6 * $toppings[1]->Price) + ($var7 * $toppings[2]->Price) + ($var8 * $sides[0]->Price) + ($var9 * $sides[1]->Price) + ($var10 * $sides[2]->Price) + ($var11 * $drinks[0]->Price) + ($var12 * $drinks[1]->Price) + ($var13 * $drinks[2]->Price));
+    
+echo "<h2>Total $" . $total . '</h2><p> Seattle Tax: $' . round($total * .096, 2) . '</p><h3> Total w/ tax: $' .  round($total + $total * .096, 2) . '</h3><br><hr>';
              
 }else{
     echo "<script>alert('Please enter valid numbers only.')</script>" . "<h1>Please enter valid numbers only.</h1>";
