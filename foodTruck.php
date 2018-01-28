@@ -1,30 +1,32 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
-<style>
-    body {
-    margin: auto;
-    width: 50%;
-    border: 3px dashed lightblue;
-    padding: 10px;
-    }
-</style>
+    <link rel="stylesheet" href="style.css">
+    <title>Food Truck App</title>
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$taco = $carneasada = $tortas = $burrito = $taquito = $tamale = 0;
+<?php    
+include 'menu.php';
 
+$var1 = $var2 = $var3 = $var4 = $var5 = $var6 = $var7 = $var8 = $var9 = $var10 = $var11 = $var12 = $var13 = 0;
+         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $taco = test_input($_POST["taco"]);
-  $carneasada = test_input($_POST["carneasada"]);
-  $tortas = test_input($_POST["tortas"]);
-  $burrito = test_input($_POST["burrito"]);
-  $taquito = test_input($_POST["taquito"]);
-  $tamale = test_input($_POST["tamale"]);
+  $var1 = test_input($_POST["BeefBurger"]);
+  $var2 = test_input($_POST["BeefDog"]);
+  $var3 = test_input($_POST["TurkeyBurger"]);
+  $var4 = test_input($_POST["TurkeyDog"]);
+  $var5 = test_input($_POST["Onions"]);
+  $var6 = test_input($_POST["Pickles"]);
+  $var7 = test_input($_POST["Relish"]);
+  $var8 = test_input($_POST["Fries"]);
+  $var9 = test_input($_POST["SeasonedFries"]);
+  $var10 = test_input($_POST["Chips"]);
+  $var11 = test_input($_POST["SmallDrink"]);
+  $var12 = test_input($_POST["MediumDrink"]);
+  $var13 = test_input($_POST["LargeDrink"]);
 }
-
+    
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -36,58 +38,53 @@ function test_input($data) {
     
 <?php
     
-    if(is_numeric($taco) and is_numeric($carneasada) and is_numeric($tortas) and is_numeric($burrito) and is_numeric($taquito) and is_numeric($tamale)) { 
-            
-echo "<h2>Your Receipt: </h2>";
-echo ($taco * 1) . " Carnitas Tacos at $7.99. Item total: $" . (7.99 * $taco);
-        
-echo "<br>";   
-echo ($carneasada * 1) . " Carne Asada at $9.99. Item total: $" . (9.99 * $carneasada);
-        
-echo "<br>";
-echo ($tortas * 1) . " Tortas at $8.99. Item total: $" . (8.99 * $tortas);
-echo "<br>";
-        
-echo ($burrito * 1) . " Burrito at $7.99. Item total: $" . (7.99 * $burrito);
-echo "<br>";
-
-echo ($taquito * 1) . " Taquito at $6.99. Item total: $" . (6.99 * $taquito);
-echo "<br>";
-        
-echo ($tamale * 1) . " Tamales at $5.99. Item total: $" . (5.99 * $tamale);
-        
-echo "<h2>Grand Total: $" . ((7.99 * $taco) + (9.99 * $carneasada) + (8.99 * $tortas) + (7.99 * $burrito) + (6.99 * $taquito) + (5.99 * $tamale)) . "</h2>";
-     
+if(is_numeric($var1) and is_numeric($var2) and is_numeric($var3) and is_numeric($var4) and is_numeric($var5) and is_numeric($var6) and is_numeric($var7) and is_numeric($var8) and is_numeric($var9) and is_numeric($var10) and is_numeric($var11) and is_numeric($var12) and is_numeric($var13)){
     
-    }else{
-        echo "<script>alert('Please enter valid numbers only.')</script>" . "<h1>Please enter valid numbers only.</h1>";
+echo "<h2>Your Receipt: </h2>";
+           
+echo ($var1 * 1) . ' ' . $meats[0]->Name . ' at ' . $meats[0]->Price . '. Item total: $' . ($var1 * $meats[0]->Price) . '<br>';
+echo ($var2 * 1) . ' ' . $meats[1]->Name . ' at ' . $meats[1]->Price . '. Item total: $' . ($var2 * $meats[1]->Price) . '<br>';
+echo ($var3 * 1) . ' ' . $meats[2]->Name . ' at ' . $meats[2]->Price . '. Item total: $' . ($var3 * $meats[2]->Price) . '<br>';
+echo ($var4 * 1) . ' ' . $meats[3]->Name . ' at ' . $meats[3]->Price . '. Item total: $' . ($var4 * $meats[3]->Price) . '<br>';
+     
+echo ($var5 * 1) . ' ' . $toppings[0]->Name . ' at ' . $toppings[0]->Price . '. Item total: $' . ($var5 * $toppings[0]->Price) . '<br>';  
+echo ($var6 * 1) . ' ' . $toppings[1]->Name . ' at ' . $toppings[1]->Price . '. Item total: $' . ($var6 * $toppings[1]->Price) . '<br>';  
+echo ($var7 * 1) . ' ' . $toppings[2]->Name . ' at ' . $toppings[2]->Price . '. Item total: $' . ($var7 * $toppings[2]->Price) . '<br>';  
+     
+echo ($var8 * 1) . ' ' . $sides[0]->Name . ' at ' . $sides[0]->Price . '. Item total: $' . ($var8 * $sides[0]->Price) . '<br>';  
+echo ($var9 * 1) . ' ' . $sides[1]->Name . ' at ' . $sides[1]->Price . '. Item total: $' . ($var9 * $sides[1]->Price) . '<br>';  
+echo ($var10 * 1) . ' ' . $sides[2]->Name . ' at ' . $sides[2]->Price . '. Item total: $' . ($var10 * $sides[2]->Price) . '<br>';  
+     
+echo ($var11 * 1) . ' ' . $drinks[0]->Name . ' at ' . $drinks[0]->Price . '. Item total: $' . ($var11 * $drinks[0]->Price) . '<br>';  
+echo ($var12 * 1) . ' ' . $drinks[1]->Name . ' at ' . $drinks[1]->Price . '. Item total: $' . ($var12 * $drinks[1]->Price) . '<br>';  
+echo ($var13 * 1) . ' ' . $drinks[2]->Name . ' at ' . $drinks[2]->Price . '. Item total: $' . ($var13 * $drinks[2]->Price) . '<br>'; 
+     
+     
+echo "<h2>Grand Total: $" . (($var1 * $meats[0]->Price) + ($var2 * $meats[1]->Price) + ($var3 * $meats[2]->Price) + ($var4 * $meats[3]->Price) + ($var5 * $toppings[0]->Price) + ($var6 * $toppings[1]->Price) + ($var7 * $toppings[2]->Price) + ($var8 * $sides[0]->Price) + ($var9 * $sides[1]->Price) + ($var10 * $sides[2]->Price) + ($var11 * $drinks[0]->Price) + ($var12 * $drinks[1]->Price) + ($var13 * $drinks[2]->Price)) . "</h2><br><hr>";
+             
+}else{
+    echo "<script>alert('Please enter valid numbers only.')</script>" . "<h1>Please enter valid numbers only.</h1>";
     }
-?>
+    
+    ?>
     
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Carnitas Tacos - $7.99 <br> <input type="text" placeholder="How many?" name="taco" value="0"> <br>
-    Try our delicious Carnitas Tacos with premium pork and cooked with the freshest Jalopenos and Onions. Served with rice and beans.
-  <br><br><hr>
     
-  Carne Asada - $9.99 <br> <input type="text" placeholder="How many?" name="carneasada" value="0"> <br>
-    Our incredible Carne Asada has the freshest local beef, served with green bell peppers, onions, and rice and beans.
-  <br><br><hr>
+<?php
     
-  Tortas - $8.99 <br> <input type="text" placeholder="How many?" name="tortas" value="0"> <br>
-    Our tortas are the best in Seattle: Served on fresh local bread, with the most premium regional meats and vegetables. 
-  <br><br><hr>
-    
-      Burrito - $7.99 <br> <input type="text" placeholder="How many?" name="burrito" value="0"> <br>
-    Fresh localized Burrito with rice, pinto beans, cilantro, onions, and your choice of meat.
-  <br><br><hr>
-    
-      Taquitos - $6.99 <br> <input type="text" placeholder="How many?" name="taquito" value="0"> <br>
-    Finest taquitos in town with cruncy shell outside and fresh meats and veggies inside.
-  <br><br><hr>
-    
-      Mama's Tamale - $5.99 <br> <input type="text" placeholder="How many?" name="tamale" value="0"> <br>
-    Premium tamales like Mama use to make. With shreded meat and premium salsa on the side.
-  <br><br><hr>
+foreach ($meats as $value) {
+  echo $value->Name . '- $'. $value->Price . '<br> <input type="text" placeholder="How many?" name="' .  str_replace(' ', '', $value->Name) .'" value="0"> <br>' .  $value->Description . '<br><br><hr>';
+}
+    foreach ($toppings as $value) {
+  echo $value->Name . '- $'. $value->Price . '<br> <input type="text" placeholder="How many?" name="' .  str_replace(' ', '', $value->Name) .'" value="0"> <br>' .  $value->Description . '<br><br><hr>';
+}
+    foreach ($sides as $value) {
+  echo $value->Name . '- $'. $value->Price . '<br> <input type="text" placeholder="How many?" name="' .  str_replace(' ', '', $value->Name) .'" value="0"> <br>' .  $value->Description . '<br><br><hr>';
+}
+        foreach ($drinks as $value) {
+  echo $value->Name . '- $'. $value->Price . '<br> <input type="text" placeholder="How many?" name="' .  str_replace(' ', '', $value->Name) .'" value="0"> <br>' .  $value->Description . '<br><br><hr>';
+}
+ ?>
   <input type="submit" name="submit"
  value="Submit">  
 </form>
