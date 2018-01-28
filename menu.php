@@ -38,8 +38,6 @@ $sides[] = $typeSides;
 $typeSides = new Sides(3,"Chips","Fresh cut potato chips",1.99);
 $sides[] = $typeSides;
 
-$sides[] = $typeSides;
-
 //DrinksNDesserts array[]
 $typeDrinksNDesserts = new DrinksNDesserts(1,"Small Drink","Pepsi products",0.99);
 $drinks[] = $typeDrinksNDesserts;
